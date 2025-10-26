@@ -22,8 +22,7 @@
 
 - Routing with protected routes — redirect unauthenticated users to login
 - Use **TanStack Query** for all requests: queries + mutations
-- Dashboard fetches dashboard stats and recent transactions via provided endpoints
-- Transaction list shows 5 latest transactions (no category shown in the summary)
+- Dashboard fetches dashboard stats and recent transactions via provided endpoint
 - Transaction detail page fetches by `id`
 - Password visibility toggle on login
 - Responsive design (mobile-first)
@@ -34,10 +33,9 @@
 | Endpoint                                                        | Method   | Description                                        | Auth Required |
 | --------------------------------------------------------------- | -------- | -------------------------------------------------- | ------------- |
 | `/api/auth/login`                                               | **POST** | Logs user in and sets HTTP-only cookie             | No            |
-| `/api/auth/logout`                                              | **POST** | Logs user out and clears session cookie            | Yes           |
 | `/api/auth/me`                                                  | **GET**  | Fetches current user session                       | Yes           |
 | `/api/dashboard/stats`                                          | **GET**  | Returns total income/spent and recent transactions | Yes           |
-| `/api/transactions?page=0&merchant=<merchant-name>&date=<date>` | **GET**  | Returns paginated list of transactions             | Yes           |
+| `/api/transactions?page=1&merchant=<merchant-name>&date=<date>` | **GET**  | Returns paginated list of transactions             | Yes           |
 | `/api/transactions/:id`                                         | **GET**  | Returns details for a specific transaction         | Yes           |
 
 ---
