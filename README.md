@@ -67,6 +67,12 @@ Use the credentials below to sign in.
 }
 ```
 
+## How to get started
+
+1. Fork this repository
+2. Run `npm install`
+3. Run `npm run dev`
+
 ## Deliverables (how to get started and what to submit)
 
 1. Fork this repository.
