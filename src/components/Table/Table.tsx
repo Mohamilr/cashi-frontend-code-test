@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import TablePagination from './TablePagination'
 
 type TableProps = {
   children: ReactNode
@@ -6,6 +7,11 @@ type TableProps = {
   containerClassName?: string
   tableClassName?: string
   headerClassName?: string
+  currentPage?: number
+  totalRecords?: number
+  pageSize?: number
+  onPageChange?: (page: number) => void
+  isPaginated?: boolean
 }
 
 const Table = ({
@@ -14,6 +20,11 @@ const Table = ({
   tableClassName,
   headerClassName,
   containerClassName,
+  currentPage,
+  totalRecords,
+  pageSize,
+  onPageChange,
+  isPaginated = false
 }: TableProps) => {
   const Header = tableHeader.map((heading, index) => {
     return (
@@ -28,7 +39,7 @@ const Table = ({
 
   return (
     <div
-      className={`flex overflow-hidden rounded-t-lg mb-2 relative ${containerClassName}`}
+      className={`flex flex-col overflow-hidden rounded-t-lg mb-2 relative ${containerClassName}`}
     >
       <div className="overflow-y-auto w-full">
         <table className={`w-full ${tableClassName}`}>
@@ -38,6 +49,12 @@ const Table = ({
           <tbody>{children}</tbody>
         </table>
       </div>
+      {isPaginated
+        &&
+        <div className='flex justify-end mt-4'>
+          <TablePagination currentPage={currentPage as number} totalRecords={totalRecords as number} pageSize={pageSize as number} onPageChange={(page) => onPageChange?.(page)} />
+        </div>
+      }
     </div>
   )
 }

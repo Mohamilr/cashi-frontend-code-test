@@ -1,14 +1,4 @@
-export interface Transaction {
-  account: string
-  amount: number
-  date: string
-  description: string
-  id: string
-  merchant: string
-  paymentMethod: 'Debit Card' | 'Credit Card'
-  referenceNumber: string
-  status: 'completed' | ''
-}
+import type { Transaction } from 'apiClient/transactions/transactions.type'
 
 export interface DashboardStats {
   income: {
