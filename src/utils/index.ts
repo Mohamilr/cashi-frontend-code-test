@@ -24,3 +24,7 @@ export const handleError = (statusCode: number, message: string) => {
       break
   }
 }
+
+export const formatNumber = (amount: number) => {
+  return new Intl.NumberFormat().format(amount)
+}
