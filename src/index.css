@@ -33,5 +33,5 @@ input:-webkit-autofill:focus {
 
 @theme {
   --color-main: #604ed6;
-  --color-secondary: #f9af3f
+  --color-secondary: #f9af3f;
 }

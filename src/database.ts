@@ -63,9 +63,9 @@ const generateTransactions = (count = 30) => {
         ? "Bank Transfer"
         : faker.helpers.arrayElement(paymentMethods),
       referenceNumber: `REF-${date.getFullYear()}-${String(
-        date.getMonth() + 1
+        date.getMonth() + 1,
       ).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}-${String(
-        faker.number.int({ min: 1, max: 999 })
+        faker.number.int({ min: 1, max: 999 }),
       ).padStart(3, "0")}`,
     };
 

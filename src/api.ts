@@ -89,7 +89,7 @@ const transactionsHandler = http.get(
       });
 
     return HttpResponse.json(paginate(filteredTransactions, page));
-  }
+  },
 );
 
 const transactionHandler = http.get(
@@ -103,7 +103,7 @@ const transactionHandler = http.get(
     return transaction
       ? HttpResponse.json(transaction)
       : new HttpResponse(null, { status: 404 });
-  }
+  },
 );
 
 const dashboardHandler = http.get("/api/dashboard/stats", ({ cookies }) => {
