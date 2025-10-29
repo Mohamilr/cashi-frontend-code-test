@@ -4,7 +4,7 @@ import { Icon } from '@iconify-icon/react'
 type ButtonProps = {
   type?: 'submit' | 'reset' | 'button' | undefined
   text: string | ReactElement
-  variant?: 'primary' | 'secondary' | "text"
+  variant?: 'primary' | 'secondary' | 'text'
   className?: string
   onClick?: () => void
   isLoading?: boolean
@@ -15,8 +15,9 @@ type ButtonProps = {
 
 const ButtonVariant = {
   primary: 'border border-main text-white bg-main disabled:opacity-60',
-  secondary: 'border border-secondary bg-secondary text-white disabled:opacity-60',
-  text: "cursor-pointer"
+  secondary:
+    'border border-secondary bg-secondary text-white disabled:opacity-60',
+  text: 'cursor-pointer',
 }
 
 const Button: FC<ButtonProps> = ({

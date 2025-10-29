@@ -2,8 +2,8 @@ import PageLoader from 'components/PageLoader/PageLoader'
 import { lazy, Suspense } from 'react'
 import { createBrowserRouter } from 'react-router'
 const Login = lazy(() => import('pages/Auth/Login/Login'))
-const ProtectedPagesLayout = lazy(() => import("pages/Protected"))
-const Dashboard = lazy(() => import("pages/Protected/Dashboard/Dashboard"))
+const ProtectedPagesLayout = lazy(() => import('pages/Protected'))
+const Dashboard = lazy(() => import('pages/Protected/Dashboard/Dashboard'))
 
 const router = createBrowserRouter([
   {
@@ -17,9 +17,7 @@ const router = createBrowserRouter([
         <ProtectedPagesLayout />
       </Suspense>
     ),
-    children: [
-      { index: true, Component: Dashboard },
-    ],
+    children: [{ index: true, Component: Dashboard }],
   },
 ])
 

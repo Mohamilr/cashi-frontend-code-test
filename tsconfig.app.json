@@ -23,7 +23,8 @@
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "allowSyntheticDefaultImports": true
   },
   "include": ["src"],
   "types": ["vite-plugin-svgr/client"]
