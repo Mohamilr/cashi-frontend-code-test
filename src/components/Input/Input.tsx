@@ -1,21 +1,21 @@
-import { FC, ReactElement, FormEvent } from "react";
+import type { FC, ReactElement, FormEvent } from 'react'
 
 type InputProps = {
-  type?: "text" | "email" | "password" | "number" | string;
-  label?: string;
-  name: string;
-  value?: string | number;
-  defaultValue?: string | number;
-  placeholder?: string;
-  leftIcon?: ReactElement;
-  rightIcon?: ReactElement;
-  error?: string;
-  onChange?: (e: FormEvent<HTMLInputElement>) => void;
-  disabled?: boolean;
-};
+  type?: 'text' | 'email' | 'password' | 'number' | string
+  label?: string
+  name: string
+  value?: string | number
+  defaultValue?: string | number
+  placeholder?: string
+  leftIcon?: ReactElement
+  rightIcon?: ReactElement
+  error?: string
+  onChange?: (e: FormEvent<HTMLInputElement>) => void
+  disabled?: boolean
+}
 
 const Input: FC<InputProps> = ({
-  type = "text",
+  type = 'text',
   label,
   name,
   placeholder,
@@ -32,13 +32,13 @@ const Input: FC<InputProps> = ({
       {label && (
         <label
           htmlFor={name}
-          className={`font-medium ${error ? "text-red-500" : ""}`}
+          className={`font-medium ${error ? 'text-red-500' : ''}`}
         >
           {label}
         </label>
       )}
       <div
-        className={`flex items-center gap-2 border p-4 rounded-md ${error ? "border-red-500" : "border-gray-200"}`}
+        className={`flex items-center gap-2 border p-4 rounded-md ${error ? 'border-red-500' : 'border-gray-200'}`}
       >
         {leftIcon && leftIcon}
         <input
@@ -49,14 +49,14 @@ const Input: FC<InputProps> = ({
           value={value}
           defaultValue={defaultValue}
           onChange={onChange}
-          className={`w-full border-none outline-none ${error ? "" : ""}`}
+          className={`w-full border-none outline-none ${error ? '' : ''}`}
           disabled={disabled}
         />
         {rightIcon && rightIcon}
       </div>
       {error && <span className="text-red-500">{error}</span>}
     </div>
-  );
-};
+  )
+}
 
-export default Input;
+export default Input

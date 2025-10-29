@@ -1,36 +1,36 @@
-import { useState } from "react";
-import Input from "components/Input/Input";
-import Button from "components/Button/Button";
-import { useFormik } from "formik";
-import { Icon } from "@iconify-icon/react";
-import { loginSchema } from "validations/auth";
-import { useLogin } from "apiClient/auth/auth.mutation";
-import router from "routes";
-import { toast } from "react-hot-toast";
+import { useState } from 'react'
+import Input from 'components/Input/Input'
+import Button from 'components/Button/Button'
+import { useFormik } from 'formik'
+import { Icon } from '@iconify-icon/react'
+import { loginSchema } from 'validations/auth'
+import { useLogin } from 'apiClient/auth/auth.mutation'
+import router from 'routes'
+import { toast } from 'react-hot-toast'
 
 const Login = () => {
-  const [showPassword, toggleShowPassword] = useState(false);
+  const [showPassword, toggleShowPassword] = useState(false)
 
-  const login = useLogin();
+  const login = useLogin()
   const handleShowPassword = () => {
-    toggleShowPassword(!showPassword);
-  };
+    toggleShowPassword(!showPassword)
+  }
 
   const formik = useFormik({
     initialValues: {
-      email: "",
-      password: "",
+      email: '',
+      password: '',
     },
     validationSchema: loginSchema,
     onSubmit: async (values) => {
-      const data = await login.mutateAsync(values);
+      const data = await login.mutateAsync(values)
 
       if (data) {
-        toast.success("Login successful");
-        router.navigate("/");
+        toast.success('Login successful')
+        router.navigate('/')
       }
     },
-  });
+  })
 
   return (
     <main>
@@ -43,11 +43,11 @@ const Login = () => {
               label="Email"
               name="email"
               onChange={formik.handleChange}
-              error={formik.touched.email ? formik.errors.email : ""}
+              error={formik.touched.email ? formik.errors.email : ''}
             />
             <Input
               label="Password"
-              type={showPassword ? "text" : "password"}
+              type={showPassword ? 'text' : 'password'}
               name="password"
               onChange={formik.handleChange}
               rightIcon={
@@ -65,14 +65,14 @@ const Login = () => {
                   />
                 )
               }
-              error={formik.touched.password ? formik.errors.password : ""}
+              error={formik.touched.password ? formik.errors.password : ''}
             />
             <Button type="submit" text="Submit" isLoading={login.isPending} />
           </form>
         </div>
       </section>
     </main>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login

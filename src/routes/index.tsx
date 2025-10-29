@@ -1,18 +1,18 @@
-import { lazy } from "react";
-import { createBrowserRouter } from "react-router";
-const Login = lazy(() => import("../pages/Auth/Login/Login"));
+import { lazy } from 'react'
+import { createBrowserRouter } from 'react-router'
+const Login = lazy(() => import('../pages/Auth/Login/Login'))
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     children: [
       { index: true, Component: Login },
       {
-        path: "/login",
+        path: '/login',
         Component: Login,
       },
     ],
   },
-]);
+])
 
-export default router;
+export default router
