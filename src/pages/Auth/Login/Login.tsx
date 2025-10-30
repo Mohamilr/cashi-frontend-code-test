@@ -6,10 +6,14 @@ import { Icon } from '@iconify-icon/react'
 import { loginSchema } from 'validations/auth'
 import { useLogin } from 'apiClient/auth/auth.mutation'
 import router from 'routes'
+import { useLocation } from 'react-router'
 import { toast } from 'react-hot-toast'
 
 const Login = () => {
   const [showPassword, toggleShowPassword] = useState(false)
+  const location = useLocation()
+
+  const from = (location.state as { from?: Location })?.from?.pathname || '/'
 
   const login = useLogin()
   const handleShowPassword = () => {
@@ -27,7 +31,7 @@ const Login = () => {
 
       if (data) {
         toast.success('Login successful')
-        router.navigate('/')
+        router.navigate(from, { replace: true })
       }
     },
   })

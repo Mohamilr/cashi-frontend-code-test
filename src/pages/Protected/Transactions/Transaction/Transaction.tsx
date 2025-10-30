@@ -37,12 +37,14 @@ const Transaction = () => {
           <span className="text-[16px] font-normal">{data?.merchant}</span>
         </p>
         <p className="text-[18px] font-bold">
-          Account:{' '}
-          <span className="text-[16px] font-normal">{data?.account}</span>
+          Amount:{' '}
+          <span
+            className={`text-[16px] font-normal ${data!.amount > 0 ? 'text-green-600' : 'text-red-600'}`}
+          >{`$${formatNumber(data?.amount ?? 0)}`}</span>
         </p>
         <p className="text-[18px] font-bold">
-          Amount:{' '}
-          <span className="text-[16px] font-normal">{`$${formatNumber(data?.amount ?? 0)}`}</span>
+          Account:{' '}
+          <span className="text-[16px] font-normal">{data?.account}</span>
         </p>
         <p className="text-[18px] font-bold">
           Payment Method:{' '}
@@ -60,7 +62,9 @@ const Transaction = () => {
         </p>
         <p className="text-[18px] font-bold">
           Status:{' '}
-          <span className="text-[16px] font-normal">{data?.status}</span>
+          <span className="text-[16px] font-normal capitalize">
+            {data?.status}
+          </span>
         </p>
       </div>
     </section>

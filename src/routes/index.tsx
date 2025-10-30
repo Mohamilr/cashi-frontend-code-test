@@ -10,6 +10,7 @@ const Transactions = lazy(
 const Transaction = lazy(
   () => import('pages/Protected/Transactions/Transaction/Transaction')
 )
+const ProtectedRoute = lazy(() => import('./ProtectedRoute'))
 
 const router = createBrowserRouter([
   {
@@ -24,9 +25,14 @@ const router = createBrowserRouter([
       </Suspense>
     ),
     children: [
-      { index: true, Component: Dashboard },
-      { path: '/transactions', Component: Transactions },
-      { path: '/transactions/:transactionId', Component: Transaction },
+      {
+        element: <ProtectedRoute />,
+        children: [
+          { index: true, Component: Dashboard },
+          { path: '/transactions', Component: Transactions },
+          { path: '/transactions/:transactionId', Component: Transaction },
+        ],
+      },
     ],
   },
 ])

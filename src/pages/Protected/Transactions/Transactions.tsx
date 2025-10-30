@@ -8,6 +8,7 @@ import TableCell from 'components/Table/TableCell'
 import Input from 'components/Input/Input'
 import SearchInput from 'components/Input/SearchInput/SearchInput'
 import router from 'routes'
+import { formatNumber } from 'utils'
 
 const Transactions = () => {
   const { data, isLoading, error, refetch, queryValues, setQueryValues } =
@@ -51,7 +52,7 @@ const Transactions = () => {
 
       <section className="mt-6  h-full overflow-y-auto">
         <Table
-          tableHeader={['Date', 'Merchant', 'Account']}
+          tableHeader={['Date', 'Merchant', 'Amount']}
           containerClassName="h-[calc(_100vh-_340px)] md:h-[calc(_100vh-_270px)]"
           isPaginated={true}
           currentPage={data?.pagination?.page}
@@ -69,7 +70,9 @@ const Transactions = () => {
                 {dayjs(transaction?.date).format('DD MMM, YYYY')}
               </TableCell>
               <TableCell>{transaction?.merchant}</TableCell>
-              <TableCell>{transaction.account}</TableCell>
+              <TableCell
+                className={`${transaction.amount > 0 ? 'text-green-600' : 'text-red-600'}`}
+              >{`$${formatNumber(transaction.amount)}`}</TableCell>
             </TableRow>
           ))}
         </Table>
