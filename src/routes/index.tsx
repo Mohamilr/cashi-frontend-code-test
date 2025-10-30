@@ -25,7 +25,7 @@ const router = createBrowserRouter([
         <ProtectedPagesLayout />
       </Suspense>
     ),
-    errorElement: <NotFound title='An error occurred!' />,
+    errorElement: <NotFound title="An error occurred!" />,
     children: [
       {
         element: <ProtectedRoute />,
@@ -38,7 +38,7 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "*",
+    path: '*',
     element: <NotFound />,
   },
 ])
