@@ -9,16 +9,12 @@
 
 ## Brief
 
-> Candidates are free to design the UI using Tailwind CSS — no design guidance or mockups are provided.
-> Build a **4-page Personal Finance App** that integrates with a provided backend.
-> The app should include:
-
 - Login screen (with password visibility toggle)
 - Dashboard (shows welcome, account balance, quick stats, **5 most recent transactions** — summary only: date, merchant, amount)
 - Transactions page (shows a paginated list of transactions with the ability to filter on date and merchant)
 - Transaction detail page (full transaction info)
 
-## What to implement (high level)
+## What was implemented
 
 - Routing with protected routes — redirect unauthenticated users to login
 - Use **TanStack Query** for all requests: queries + mutations
@@ -72,12 +68,4 @@ Use the credentials below to sign in.
 1. Fork this repository
 2. Run `npm install`
 3. Run `npm run dev`
-
-## Deliverables (how to get started and what to submit)
-
-1. Fork this repository.
-2. Public GitHub repo with clear commits
-3. `README.md` with:
-   - Setup instructions and any environment variables
-   - Commands to run the app locally
-4. Short note (in README) explaining any trade-offs or unfinished items
+4. Run storybook: `npm run storybook`
