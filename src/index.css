@@ -17,7 +17,23 @@ body {
   display: flex;
   min-width: 320px;
   min-height: 100vh;
-  /* background-color: var(--background); */
+  background-color: white;
+  color: black;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: white;
+    color: black;
+  }
+
+  input:-webkit-autofill {
+    -webkit-text-fill-color: black;
+  }
+
+  input:-webkit-autofill:focus {
+    -webkit-text-fill-color: black;
+  }
 }
 
 input:-webkit-autofill,
