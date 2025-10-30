@@ -1,6 +1,6 @@
 import AnalyticsCard from 'components/AnalyticsCard/AnalyticsCard'
 import PageLoader from 'components/PageLoader/PageLoader'
-import { formatNumber } from 'utils'
+import { formatNumber, showCurrency } from 'utils'
 import { Icon } from '@iconify-icon/react'
 import { useGetStats } from 'apiClient/dashboard/dasboard.query'
 import Error from 'components/Error/Error'
@@ -32,7 +32,7 @@ const DashboardData = () => {
                         />
                     }
                     title="Income"
-                    value={`${formatNumber(data?.income?.amount as number)}`}
+                    value={`${showCurrency(data?.income?.currency ?? '')}${formatNumber(data?.income?.amount ?? 0)}`}
                 />
                 <AnalyticsCard
                     icon={
@@ -43,13 +43,17 @@ const DashboardData = () => {
                         />
                     }
                     title="Expenses"
-                    value={`${formatNumber(data?.expenses?.amount as number)}`}
+                    value={`${showCurrency(data?.expenses?.currency ?? '')}${formatNumber(data?.expenses?.amount ?? 0)}`}
                 />
             </div>
             <section className="mt-20">
                 <Table tableHeader={['Date', 'Merchant', 'Account']}>
                     {data?.mostRecentTransactions?.map((transaction) => (
-                        <TableRow key={transaction?.id} className="cursor-pointer hover:bg-gray-200/20" onClick={() => handleViewTransaction(transaction?.id)}>
+                        <TableRow
+                            key={transaction?.id}
+                            className="cursor-pointer hover:bg-gray-200/20"
+                            onClick={() => handleViewTransaction(transaction?.id)}
+                        >
                             <TableCell>
                                 {dayjs(transaction?.date).format('DD MMM, YYYY')}
                             </TableCell>

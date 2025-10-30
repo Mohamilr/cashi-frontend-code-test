@@ -28,3 +28,11 @@ export const handleError = (statusCode: number, message: string) => {
 export const formatNumber = (amount: number) => {
   return new Intl.NumberFormat().format(amount)
 }
+
+const currencies: Record<string, string> = {
+  USD: '$',
+}
+
+export const showCurrency = (currency: string) => {
+  return currencies[currency]
+}

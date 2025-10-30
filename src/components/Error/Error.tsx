@@ -9,9 +9,7 @@ type ErrorProps = {
 
 const Error: FC<ErrorProps> = ({ message, onRetry }) => {
   return (
-    <div
-      className="flex flex-col items-center justify-center h-full"
-    >
+    <div className="flex flex-col items-center justify-center h-full">
       <Icon
         icon="material-symbols:error-rounded"
         width={90}
