@@ -72,7 +72,10 @@ const Sidebar: FC<SidebarProps> = ({ isOpen, onClose, handleLogout }) => {
                 <SidebarItem
                   key={i}
                   text={item.text}
-                  active={location.pathname === item.link}
+                  active={
+                    location.pathname.split('/')?.[1] ===
+                    item.link.split('/')?.[1]
+                  }
                   icon={<Icon icon={item.icon} width={25} height={25} />}
                   link={item.link}
                 />
