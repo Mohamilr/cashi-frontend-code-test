@@ -49,7 +49,7 @@ const Input: FC<InputProps> = ({
           value={value}
           defaultValue={defaultValue}
           onChange={onChange}
-          className={`w-full border-none outline-none ${error ? '' : ''}`}
+          className={`w-full border-none outline-none placeholder:text-black ${error ? '' : ''}`}
           disabled={disabled}
         />
         {rightIcon && rightIcon}
