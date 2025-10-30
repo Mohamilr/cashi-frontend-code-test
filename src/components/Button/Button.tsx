@@ -34,7 +34,7 @@ const Button: FC<ButtonProps> = ({
   return (
     <button
       type={type}
-      className={`flex items-center outline-none justify-center gap-1 w-full py-4 rounded-md  text-[16px] leading-[18px] font-semibold ${ButtonVariant[variant]} ${className}`}
+      className={`flex items-center outline-none justify-center gap-1 w-full py-4 rounded-md  text-[16px] leading-[18px] font-semibold cursor-pointer ${ButtonVariant[variant]} ${className}`}
       onClick={onClick}
       disabled={disabled || isLoading}
     >

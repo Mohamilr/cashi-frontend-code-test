@@ -11,62 +11,62 @@ import TableCell from 'components/Table/TableCell'
 import router from 'routes'
 
 const DashboardData = () => {
-  const { data, isLoading, error, refetch } = useGetStats()
+    const { data, isLoading, error, refetch } = useGetStats()
 
-  if (isLoading) return <PageLoader />
-  if (error) return <Error message={error.message} onRetry={refetch} />
+    if (isLoading) return <PageLoader />
+    if (error) return <Error message={error.message} onRetry={refetch} />
 
-  const handleViewTransaction = (transactionId: string) => {
-    router.navigate(`/transactions/${transactionId}`)
-  }
+    const handleViewTransaction = (transactionId: string) => {
+        router.navigate(`/transactions/${transactionId}`)
+    }
 
-  return (
-    <section>
-      <div className="flex flex-col md:flex-row gap-4 mt-4">
-        <AnalyticsCard
-          icon={
-            <Icon
-              icon="solar:money-bag-outline"
-              width={80}
-              className="text-green-500"
-            />
-          }
-          title="Income"
-          value={`${showCurrency(data?.income?.currency ?? '')}${formatNumber(data?.income?.amount ?? 0)}`}
-        />
-        <AnalyticsCard
-          icon={
-            <Icon
-              icon="hugeicons:money-send-square"
-              width={80}
-              className="text-secondary"
-            />
-          }
-          title="Expenses"
-          value={`${showCurrency(data?.expenses?.currency ?? '')}${formatNumber(data?.expenses?.amount ?? 0)}`}
-        />
-      </div>
-      <section className="mt-20">
-        <Table tableHeader={['Date', 'Merchant', 'Amount']}>
-          {data?.mostRecentTransactions?.map((transaction) => (
-            <TableRow
-              key={transaction?.id}
-              className="cursor-pointer hover:bg-gray-200/20"
-              onClick={() => handleViewTransaction(transaction?.id)}
-            >
-              <TableCell>
-                {dayjs(transaction?.date).format('DD MMM, YYYY')}
-              </TableCell>
-              <TableCell>{transaction?.merchant}</TableCell>
-              <TableCell
-                className={`${transaction.amount > 0 ? 'text-green-600' : 'text-red-600'}`}
-              >{`$${formatNumber(transaction.amount)}`}</TableCell>
-            </TableRow>
-          ))}
-        </Table>
-      </section>
-    </section>
-  )
+    return (
+        <section>
+            <div className="flex flex-col md:flex-row gap-4 mt-4">
+                <AnalyticsCard
+                    icon={
+                        <Icon
+                            icon="solar:money-bag-outline"
+                            width={80}
+                            className="text-green-500"
+                        />
+                    }
+                    title="Income"
+                    value={`${showCurrency(data?.income?.currency ?? '')}${formatNumber(data?.income?.amount ?? 0)}`}
+                />
+                <AnalyticsCard
+                    icon={
+                        <Icon
+                            icon="hugeicons:money-send-square"
+                            width={80}
+                            className="text-secondary"
+                        />
+                    }
+                    title="Expenses"
+                    value={`${showCurrency(data?.expenses?.currency ?? '')}${formatNumber(data?.expenses?.amount ?? 0)}`}
+                />
+            </div>
+            <section className="mt-20">
+                <Table tableHeader={['Date', 'Merchant', 'Amount']}>
+                    {data?.mostRecentTransactions?.map((transaction) => (
+                        <TableRow
+                            key={transaction?.id}
+                            className="cursor-pointer hover:bg-gray-200/20"
+                            onClick={() => handleViewTransaction(transaction?.id)}
+                        >
+                            <TableCell>
+                                {dayjs(transaction?.date).format('DD MMM, YYYY')}
+                            </TableCell>
+                            <TableCell>{transaction?.merchant}</TableCell>
+                            <TableCell
+                                className={`${transaction.amount > 0 ? 'text-green-600' : 'text-red-600'}`}
+                            >{`$${formatNumber(transaction.amount)}`}</TableCell>
+                        </TableRow>
+                    ))}
+                </Table>
+            </section>
+        </section>
+    )
 }
 
 export default DashboardData
