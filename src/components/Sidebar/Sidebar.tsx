@@ -43,7 +43,7 @@ const Sidebar: FC<SidebarProps> = ({ isOpen, onClose, handleLogout }) => {
       {(!isMobile || isOpen) && (
         <aside
           ref={sidebarRef}
-          className="flex flex-col w-[300px] absolute md:relative border-r border-gray-200 p-4 h-dvh bg-white z-50"
+          className="flex flex-col w-[300px] fixed md:relative border-r border-gray-200 p-4 h-dvh bg-white z-50 "
         >
           <div className="flex items-center justify-between md:justify-center">
             <img
@@ -85,7 +85,7 @@ const Sidebar: FC<SidebarProps> = ({ isOpen, onClose, handleLogout }) => {
               <Button
                 text="Logout"
                 type="button"
-                className="gap-4 text-red-500"
+                className="gap-4 text-red-500!"
                 variant="text"
                 rightIcon={
                   <Icon icon="famicons:exit-outline" width={25} height={25} />

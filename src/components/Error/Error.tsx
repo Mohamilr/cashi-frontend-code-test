@@ -20,7 +20,7 @@ const Error: FC<ErrorProps> = ({ message, onRetry }) => {
         <Button
           text="Kindly retry."
           variant="text"
-          className="text-main w-fit! inline!"
+          className="text-main! w-fit! inline!"
           onClick={onRetry}
         />
       </p>
