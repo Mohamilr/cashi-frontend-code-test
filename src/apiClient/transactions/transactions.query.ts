@@ -1,7 +1,11 @@
 import { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { apiClient } from '..'
-import type { Transactions, TransactionsQueryValues } from './transactions.type'
+import type {
+  Transaction,
+  Transactions,
+  TransactionsQueryValues,
+} from './transactions.type'
 
 const getTransactions = async ({
   page,
@@ -45,4 +49,16 @@ export const useGetTransactions = () => {
     queryValues,
     setQueryValues,
   }
+}
+
+export const useGetATransaction = (transactionId: string) => {
+  return useQuery({
+    queryKey: ['transaction', transactionId],
+    queryFn: async (): Promise<Transaction> => {
+      const { data } = await apiClient.get(`/api/transactions/${transactionId}`)
+
+      return data
+    },
+    enabled: !!transactionId,
+  })
 }

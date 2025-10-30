@@ -7,6 +7,7 @@ import TableRow from 'components/Table/TableRow'
 import TableCell from 'components/Table/TableCell'
 import Input from 'components/Input/Input'
 import SearchInput from 'components/Input/SearchInput/SearchInput'
+import router from 'routes'
 
 const Transactions = () => {
     const { data, isLoading, error, refetch, queryValues, setQueryValues } =
@@ -27,6 +28,11 @@ const Transactions = () => {
         setQueryValues(prev => ({ ...prev, merchant: searchValue }))
 
     }
+
+    const handleViewTransaction = (transactionId: string) => {
+        router.navigate(`/transactions/${transactionId}`)
+    }
+
     return (
         <section className="flex flex-col py-4 px-6">
             <h2 className="text-[40px] font-bold">Transactions</h2>
@@ -46,7 +52,7 @@ const Transactions = () => {
                     onPageChange={(page) => handlePageChange(page)}
                 >
                     {data?.items?.map((transaction) => (
-                        <TableRow key={transaction?.id}>
+                        <TableRow className="cursor-pointer hover:bg-gray-200/20" key={transaction?.id} onClick={() => handleViewTransaction(transaction?.id)}>
                             <TableCell>
                                 {dayjs(transaction?.date).format('DD MMM, YYYY')}
                             </TableCell>

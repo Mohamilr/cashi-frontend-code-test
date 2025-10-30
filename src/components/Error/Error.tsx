@@ -11,7 +11,6 @@ const Error: FC<ErrorProps> = ({ message, onRetry }) => {
   return (
     <div
       className="flex flex-col items-center justify-center h-full"
-      onClick={onRetry}
     >
       <Icon
         icon="material-symbols:error-rounded"
@@ -24,6 +23,7 @@ const Error: FC<ErrorProps> = ({ message, onRetry }) => {
           text="Kindly retry."
           variant="text"
           className="text-main w-fit! inline!"
+          onClick={onRetry}
         />
       </p>
     </div>

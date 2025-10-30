@@ -7,6 +7,7 @@ const Dashboard = lazy(() => import('pages/Protected/Dashboard/Dashboard'))
 const Transactions = lazy(
   () => import('pages/Protected/Transactions/Transactions')
 )
+const Transaction = lazy(() => import("pages/Protected/Transactions/Transaction/Transaction"))
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, Component: Dashboard },
       { path: '/transactions', Component: Transactions },
+      { path: "/transactions/:transactionId", Component: Transaction }
     ],
   },
 ])

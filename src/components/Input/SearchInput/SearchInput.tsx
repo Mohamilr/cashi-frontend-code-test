@@ -16,8 +16,8 @@ const SearchInput: FC<SearchInputProps> = ({
     value,
 }) => {
     const debouncedSearch = debounce((e) => handleSearch(e.target.value), 1000, {
-
     })
+
     return (
         <Input
             label={label}
