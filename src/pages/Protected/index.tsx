@@ -12,8 +12,8 @@ const index = () => {
   const { data } = useGetUser()
 
   const handleLogout = () => {
-    router.navigate('/login')
     Cookies.remove('sessionId')
+    router.navigate('/login')
   }
 
   return (
