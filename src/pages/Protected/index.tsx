@@ -4,6 +4,7 @@ import Sidebar from 'components/Sidebar/Sidebar'
 import Navbar from 'components/Navbar/Navbar'
 import router from 'routes'
 import { useGetUser } from 'apiClient/auth/auth.query'
+import Cookies from 'js-cookie'
 
 const index = () => {
   const [isSidebarOpen, toggleSidebar] = useState(false)
@@ -11,8 +12,8 @@ const index = () => {
   const { data } = useGetUser()
 
   const handleLogout = () => {
+    Cookies.remove('sessionId')
     router.navigate('/login')
-    // clear cookie
   }
 
   return (
@@ -28,7 +29,7 @@ const index = () => {
           toggleSidebar={() => toggleSidebar(true)}
         />
         <div className="flex-1 overflow-y-auto">
-          <Outlet context={{ name: data?.firstName }} />
+          <Outlet />
         </div>
       </section>
     </main>

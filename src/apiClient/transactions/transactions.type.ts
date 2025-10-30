@@ -13,7 +13,7 @@ export interface Transaction {
   merchant: string
   paymentMethod: 'Debit Card' | 'Credit Card'
   referenceNumber: string
-  status: 'completed' | ''
+  status: 'completed'
 }
 
 export interface Transactions {
