@@ -17,7 +17,7 @@ const ButtonVariant = {
   primary: 'border border-main text-white bg-main disabled:opacity-60',
   secondary:
     'border border-secondary bg-secondary text-white disabled:opacity-60',
-  text: 'cursor-pointer',
+  text: 'cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed',
 }
 
 const Button: FC<ButtonProps> = ({

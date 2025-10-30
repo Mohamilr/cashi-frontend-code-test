@@ -6,7 +6,7 @@ const PAGE_SIZE = 20
 
 const paginate = (array: any[], page = 1) => {
   const totalItems = array.length
-  const totalPages = Math.ceil(totalItems / PAGE_SIZE)
+  const totalRecords = Math.ceil(totalItems / PAGE_SIZE)
   const startIndex = (page - 1) * PAGE_SIZE
   const endIndex = startIndex + PAGE_SIZE
 
@@ -14,7 +14,7 @@ const paginate = (array: any[], page = 1) => {
     items: array.slice(startIndex, endIndex),
     pagination: {
       totalItems,
-      totalPages,
+      totalRecords,
       page,
       pageSize: PAGE_SIZE,
     },

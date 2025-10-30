@@ -1,4 +1,4 @@
-import type { FC, ReactElement, FormEvent } from 'react'
+import type { FC, ReactElement, ChangeEvent } from 'react'
 
 type InputProps = {
   type?: 'text' | 'email' | 'password' | 'number' | string
@@ -10,7 +10,7 @@ type InputProps = {
   leftIcon?: ReactElement
   rightIcon?: ReactElement
   error?: string
-  onChange?: (e: FormEvent<HTMLInputElement>) => void
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void
   disabled?: boolean
 }
 
