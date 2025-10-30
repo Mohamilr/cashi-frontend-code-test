@@ -27,7 +27,7 @@ const index = () => {
                     name={data?.firstName}
                     toggleSidebar={() => toggleSidebar(true)}
                 />
-                <div className="flex-1">
+                <div className="flex-1 overflow-y-auto">
                     <Outlet context={{ name: data?.firstName }} />
                 </div>
             </section>

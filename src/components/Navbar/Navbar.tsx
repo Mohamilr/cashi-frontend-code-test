@@ -10,7 +10,7 @@ type NavbarProps = {
 
 const Navbar: FC<NavbarProps> = ({ name, toggleSidebar }) => {
   return (
-    <nav className="flex items-center justify-between md:justify-end px-4 h-16 border-b border-gray-200">
+    <nav className="sticky top-0 bg-white flex items-center justify-between md:justify-end px-4 h-16 border-b border-gray-200">
       <Button
         text=""
         variant="text"

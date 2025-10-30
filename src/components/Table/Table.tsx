@@ -24,7 +24,7 @@ const Table = ({
   totalRecords,
   pageSize,
   onPageChange,
-  isPaginated = false
+  isPaginated = false,
 }: TableProps) => {
   const Header = tableHeader.map((heading, index) => {
     return (
@@ -49,12 +49,16 @@ const Table = ({
           <tbody>{children}</tbody>
         </table>
       </div>
-      {isPaginated
-        &&
-        <div className='flex justify-end mt-4'>
-          <TablePagination currentPage={currentPage as number} totalRecords={totalRecords as number} pageSize={pageSize as number} onPageChange={(page) => onPageChange?.(page)} />
+      {isPaginated && (
+        <div className="flex justify-end mt-4">
+          <TablePagination
+            currentPage={currentPage as number}
+            totalRecords={totalRecords as number}
+            pageSize={pageSize as number}
+            onPageChange={(page) => onPageChange?.(page)}
+          />
         </div>
-      }
+      )}
     </div>
   )
 }
